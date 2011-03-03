@@ -52,8 +52,8 @@ var ip = "<?php echo $_SERVER['REMOTE_ADDR']?>";
 <script type="text/javascript" src="statusboard/jquery.li-scroller.1.0.js" language="javascript"></script>
 <script type="text/javascript" src="statusboard/clock.js" language="javascript"></script>
 <script type="text/javascript" src="statusboard/htmlentities.js" language="javascript"></script>
-<script type="text/javascript" src="statusboard/ajax-json-loads.js" language="javascript"></script>
-<script type="text/javascript" src="statusboard/googlecalendar.js" language="javascript"></script>
+<script type="text/javascript" src="statusboard/ajax-json-loads.js" language="javascript">//Most of the Core lives in here</script>
+<script type="text/javascript" src="statusboard/googlecalendar.js" language="javascript">//Parse Google Calendar</script>
 
 <script language="JavaScript" type="text/javascript"> 
 $(document).ready(function() {
@@ -64,10 +64,10 @@ loadWeather();
  loadTwitter();
  loadCountdown();
 loadRSSFeed();
-loadEOCCalendar();
+loadCalendar();
 $("#subject").html('');
- //I got your IP above...Determine if you are local or not.  If so, webcam, if not, Monster Church logo 
- if(ip.substr(0,3) == '10.') { $('#webcam > .image').css("background-image", "url(http://10.8.5.91/axis-cgi/mjpg/video.cgi?camera=&resolution=320x240)"); } else { $('#webcam > .image').css("background-image", "url(http://a3.twimg.com/profile_background_images/83329981/MonsterChurch.jpg)"); 
+ //I got your IP above...Determine if you are local or not.  If so, webcam, if not, Monster Church logo - http://10.8.5.91/axis-cgi/mjpg/video.cgi?camera=&resolution=320x240
+ if(ip.substr(0,3) == '10.') { $('#webcam > .image').css("background-image", "url(http://10.8.5.91/axis-cgi/mjpg/video.cgi?resolution=320x240)"); } else { $('#webcam > .image').css("background-image", "url(http://a3.twimg.com/profile_background_images/83329981/MonsterChurch.jpg)"); 
  $('#webcam > .image').css("background-position", "center 0px");}
  //Set Timers for AJAX refresh
  setInterval('updateClock()', 10000 )
@@ -75,8 +75,8 @@ $("#subject").html('');
  setInterval('loadTwitter()', 15000 )
  setInterval('loadCountdown()', 600000 )
  setInterval('loadWeather()', 300000 )
-setInterval('loadEOCCalendar()', 30000 )
-
+setInterval('loadCalendar()', 30000 )
+setTimeout(function(){window.scrollTo(0,1);}, 100);
 
  //All your base are belong to us
 }); //End Document Ready

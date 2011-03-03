@@ -70,6 +70,8 @@ function loadTickets() {
 		if(item.isnew == 1){newclass = ' newticket'; newticketcount = 1; loadNewTickets(); } else { newclass = '';}
 		$('#newtickets').append('<div class="entry'+newclass+'"><img src="statusboard/resultset_next.png" />'+item.subject+overdueimage+'</div>'); 
 	});
+	//Determine if user is local or not, if so, turn on new ticket light relay, otherwise turn relay off.
+	if (ip.substr(0,2) == '10'){ newticketlisturl = "http://10.205.2.96/state.xml?relay1State="; $("#newticketlight").attr('src', newticketlisturl + newticketcount);}
 	$.each(data['overduetickets'], function(i,item){
 		$('#overduetickets').append('<div class="entry"><img src="statusboard/resultset_next.png" />'+item+'<img class="exclamation" src="statusboard/exclamation.png" /></div>'); 
 	});
@@ -78,8 +80,6 @@ function loadTickets() {
 	//	if(item.isnew == 1){newclass = ' newticket';  } else { newclass = '';}
 	///	$('#changedtickets').append('<div class="entry'+newclass+'"><img src="statusboard/resultset_next.png" />'+item.subject+overdueimage+'</div>'); 
 	//});
-	//Determine if user is local or not, if so, turn on new ticket light relay, otherwise turn relay off.
-	if (ip.substr(0,2) == '10'){ newticketlisturl = "http://10.205.2.96/state.xml?relay1State="; $("#newticketlight").attr('src', newticketlisturl + newticketcount); }
 	
 })
 

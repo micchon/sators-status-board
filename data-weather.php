@@ -2,7 +2,7 @@
 include("statusboard/class.xml.parser.php");
 include("statusboard/class.weather.php");
 
-// Yup, found this PHP class to get weather data via Yahoo and turn it to JSON
+// Found this PHP class to get weather data via Yahoo and turn it to JSON
 
 //error_reporting(E_ALL);
 // ------------------- 
@@ -36,7 +36,7 @@ $weather_location = new weather("USIL0070", 3600, "F", $cachedir); // <-- Change
 
 // $weather_location->parsecached(); // => RECOMMENDED!
 
-// allway refreshes from rss online. NOT SO FAST. (I DON"T CARE! I'm refreshing the data every 5min, it'll be ok if it takes a few extra mill)
+// allway refreshes from rss online. NOT AS FAST. (I DON"T CARE! I'm refreshing the data every 5min, it'll be ok if it takes a few extra mill)
 $weather_location->parse(); // => NOT recommended!
 
 echo json_encode($weather_location->forecast); 
