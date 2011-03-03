@@ -4,8 +4,8 @@
 // *        www.sators.com          *
 // **********************************
 
-// Database Connection User/Pass. Enter your MySQL info here
-mysql_connect("server", "username", "password") or die(mysql_error()); 
+// Database Connection User/Pass
+mysql_connect("localhost", "username", "password") or die(mysql_error()); 
 // Database Selection
-mysql_select_db("database") or die(mysql_error()); 
+mysql_select_db("database_name") or die(mysql_error()); 
 ?>

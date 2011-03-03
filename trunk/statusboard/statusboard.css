@@ -1,14 +1,8 @@
 @charset "utf-8";
-/* 
- **********************************
- *     Code by Matt Satorius      *
- *        www.sators.com          *
- **********************************
-
-CSS for Status Board
----------------------
-Displays beautifully on Plainview at 1360x768.  Other browsers?  Maybe yes, maybe no.  It's not for public viewing!  Love the webkit dynamic gradients though...mmmmm sexy.
-
+/* **********************************
+// *     Code by Matt Satorius      *
+// *        www.sators.com          *
+// **********************************
 */
 * {
 padding: 0;
@@ -500,7 +494,7 @@ font-weight: bold;
 	color: black;
 }
 #webcam .image {
-	top: -20px;
+	top: 0px;
 	overflow: hidden;
 	height: 100%;
 	

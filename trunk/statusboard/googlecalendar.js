@@ -94,14 +94,7 @@ var todaysday = todaysdate.getDate();
  * 
  * @param {json} root is the JSON-formatted content from GData
  */ 
-function loadEOCCalendar() {
-	$.getJSON("http://www.google.com/calendar/feeds/sators.com_be9osojvaocjil5mnrouorn0ns@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=7&singleevents=true&sortorder=ascending&futureevents=true", function(data){ 
- 		   var feed = data.feed;
-  $('#eoccalendar').children().remove();  
-
-  // create a new unordered list
-  //var ul = document.createElement('ul');
-	$('#eoccalendar').append('<div id="datetime"><ul></ul></div><ul id="eventdetails"></ul>'); 
+function populateevents(feed) {
 
   // loop through each event in the feed
   for (var i = 0; i < feed.entry.length; i++) {
@@ -123,7 +116,17 @@ $('#eventdetails').append('<li>' + title+ '</li>');
 $('#datetime > ul').append('<li>' + dateString + '</li>'); 
  
   }
- 
-	});
 }
 
+function loadCalendar() {
+
+	$.getJSON("http://www.google.com/calendar/feeds/willoweoc@gmail.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=7&singleevents=true&sortorder=ascending&futureevents=true", function(data){ 
+ 		feed = data.feed;
+		  $('#eoccalendar').children().remove();  
+
+		  // create a new unordered list
+		  //var ul = document.createElement('ul');
+			$('#eoccalendar').append('<div id="datetime"><ul></ul></div><ul id="eventdetails"></ul>'); 
+		populateevents(feed);
+	});
+}
