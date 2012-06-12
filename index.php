@@ -25,7 +25,7 @@ var ip = "<?php echo $_SERVER['REMOTE_ADDR']?>";
 <div class="container-ticketlists">
 <div id="newtickets" class="ticketlist"></div>
 <div id="overduetickets" class="ticketlist"></div>
-<div id="twitter" class="border-gray"><div id="bird"><img src="statusboard/twitter-bird.png" /></div><div id="userimage"><img src="http://imagen.crz.net/twitteranon1.new.png" /></div><div id="userdetails"><div id="username"></div><div id="tweettime"></div></div><div id="tweet"></div></div>
+<div id="twitter" class="border-gray"><div id="bird"><img src="statusboard/twitter-bird.png" /></div><div id="userimage"><img src="" /></div><div id="userdetails"><div id="username"></div><div id="tweettime"></div></div><div id="tweet"></div></div>
 </div>
 <div id="bottomboxes">
 <div id="countdown"></div>
